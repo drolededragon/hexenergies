@@ -9,7 +9,8 @@ import at.petrak.hexcasting.api.casting.iota.NullIota
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
 import net.minecraft.core.BlockPos
-import net.drolededragon.hextech.energy.HextechEnergyAbstractions
+import net.drolededragon.hextech.energy.canReceiveEnergy
+import net.drolededragon.hextech.energy.insertEnergy
 
 object OpEnergyInsert : ConstMediaAction {
     override val argc = 2
@@ -24,7 +25,7 @@ object OpEnergyInsert : ConstMediaAction {
         }
         
         // Check if we can actually insert energy at this position
-        if (!HextechEnergyAbstractions.canReceiveEnergy(env.world, blockPos)) {
+        if (!canReceiveEnergy(env.world, blockPos)) {
             throw MishapBadLocation(position, "hextech.energy_insert.no_energy_receiver")
         }
         
@@ -35,7 +36,7 @@ object OpEnergyInsert : ConstMediaAction {
         val energyToInsert = maxOf(0, energyAmount.toLong())
         
         // Insert the energy
-        val success = HextechEnergyAbstractions.insertEnergy(env.world, blockPos, energyToInsert)
+        val success = insertEnergy(env.world, blockPos, energyToInsert)
         
         return listOf(if (success) Vec3Iota(position) else NullIota())
     }

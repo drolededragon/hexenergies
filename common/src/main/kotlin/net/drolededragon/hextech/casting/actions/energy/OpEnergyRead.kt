@@ -8,7 +8,9 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.NullIota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
 import net.minecraft.core.BlockPos
-import net.drolededragon.hextech.energy.HextechEnergyAbstractions
+import net.drolededragon.hextech.energy.canReceiveEnergy
+import net.drolededragon.hextech.energy.getEnergyStored
+import net.drolededragon.hextech.energy.getMaxEnergyStored
 
 object OpEnergyRead : ConstMediaAction {
     override val argc = 1
@@ -23,13 +25,13 @@ object OpEnergyRead : ConstMediaAction {
         }
         
         // Check if there's an energy capability at this position
-        if (!HextechEnergyAbstractions.canReceiveEnergy(env.world, blockPos)) {
+        if (!canReceiveEnergy(env.world, blockPos)) {
             return listOf(NullIota())
         }
         
         // Get current energy and max energy
-        val currentEnergy = HextechEnergyAbstractions.getEnergyStored(env.world, blockPos)
-        val maxEnergy = HextechEnergyAbstractions.getMaxEnergyStored(env.world, blockPos)
+        val currentEnergy = getEnergyStored(env.world, blockPos)
+        val maxEnergy = getMaxEnergyStored(env.world, blockPos)
         
         // Return current energy and max energy as doubles
         return listOf(
