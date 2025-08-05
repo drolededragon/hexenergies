@@ -3,32 +3,30 @@
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports.ruff": "explicit"
+            "source.organizeImports.ruff": "explicit",
         },
         "editor.rulers": [88],
     },
     "[yaml][html][css][javascript][jinja-html][jinja-css][jinja-js]": {
         "editor.tabSize": 2,
     },
+    "[html][jinja-html]": {
+        "editor.rulers": [120],
+    },
     "ruff.organizeImports": true,
-    "ruff.lint.ignore": ["I"],
+    "ruff.lint.ignore": ["I"], // format on save is enabled, so don't show the squiggles
     "python.languageServer": "Pylance",
     "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.packageIndexDepths": [
+        {"name": "hexdoc", "depth": 3},
+        {"name": "pydantic", "depth": 2},
+    ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "files.associations": {
-        "*.css.jinja": "jinja-css",
-        "*.gradle.jinja": "jinja-groovy",
-        "*.java.jinja": "jinja-java",
-        "*.kt.jinja": "kotlin",
-        "*.gradle.kts.jinja": "gradle-kotlin-dsl",
-        "*.mcmeta.jinja": "jinja-json",
-        "*.properties.jinja": "jinja-properties",
-        "*_copier_conf.answers_file*.jinja": "jinja-yaml",
-        "*.json5.jinja": "jinja-json",
+        "*.js.jinja": "javascript",
+        "*.css.jinja": "css",
+        "*.jcss.jinja": "jinja-css", // for files with a lot of jinja stuff, where the linting isn't useful
+        "*.json5.jinja": "json5",
     },
-    "git.ignoredRepositories": [
-        ".ctt/*",
-    ],
-    "kotlin.languageServer.enabled": false,
 }

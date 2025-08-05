@@ -1,0 +1,8 @@
+{
+  hexdoc: {
+    hextech: {
+      title: "Hextech Book",
+      description: "Hextech is an addon for Hex Casting focused on interaction with technology mods.",
+    },
+  }
+}

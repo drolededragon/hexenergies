@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+# https://copier.readthedocs.io/en/stable/updating/#never-change-the-answers-file-manually
+_commit: v2.0.4
+_src_path: gh:FallingColors/hexdummy
+advanced: false
+description: Hextech is an addon for Hex Casting focused on interaction with technology
+    mods.
+display_name: Hextech
+github_repo: hextech
+github_user: drolededragon
+java_package: net.drolededragon.hextech
+mappings_name: Mojmap
+minecraft_version_in_mod_version: false
+mod_version: 0.1.0
+modid: hextech
