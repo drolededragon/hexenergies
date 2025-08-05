@@ -1,0 +1,25 @@
+{
+  "name": "hexcasting.entry.hextech.energy_insert",
+  "category": "hexcasting:hextech_technology",
+  "icon": "minecraft:redstone_block",
+  "priority": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexcasting.entry.hextech.energy_insert.desc"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextech:energy/insert",
+      "anchor": "hextech:energy/insert",
+      "input": "vector, number",
+      "output": "vector",
+      "text": "Takes the position of an energy-accepting block and the amount of energy to insert. Returns the position if successful, or null if the target refuses your generous electrical donation.$(br2)Energy is measured in Forge Energy units (FE). Most machines accept reasonable amounts, but don't try to power a toaster with the energy output of a small star."
+    },
+    {
+      "type": "patchouli:text", 
+      "title": "Mishaps & Warnings",
+      "text": "$(li)Targeting empty air will result in disappointment and wasted media$(li)Negative energy amounts are rejected - machines cannot run on spite$(li)Some blocks simply don't understand the concept of energy$(li)Side effects may include: spontaneous automation, confused engineers, and machines that hum suspiciously$(br2)Remember: with great power comes great electricity bills."
+    }
+  ]
+}

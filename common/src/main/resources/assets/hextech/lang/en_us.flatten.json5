@@ -16,6 +16,8 @@
     action: {
       "hextech:": {
         congratulate: "Congratulate Player",
+        "energy/insert": "Energy Insert",
+        "energy/read": "Energy Read",
       },
 
       // use this to add shortened versions of pattern names if the full name won't fit in the ingame book
@@ -23,6 +25,8 @@
       book: {
         "hextech:": {
           congratulate: "Congratulate",
+          "energy/insert": "Energy Insert",
+          "energy/read": "Energy Read",
         },
       },
     },
@@ -31,6 +35,25 @@
   text: {
     hextech: {
       congrats: "Tell %1$s they're doing a good job!",
+    },
+  },
+
+  hexcasting: {
+    entry: {
+      hextech_technology: "HexTech Technology",
+      hextech_technology: {
+        desc: "Spells that bridge the gap between hexcasting magic and technological systems. Harness the power of both ancient arts and modern engineering!",
+      },
+      hextech: {
+        energy_insert: "Energy Insert",
+        energy_insert: {
+          desc: "Channel raw energy into technological devices with surgical precision. Because sometimes machines need a magical jump-start.",
+        },
+        energy_read: "Energy Read",
+        energy_read: {
+          desc: "Peer into the electrical soul of machines to understand their power levels. Knowledge is power, and power is measurable.",
+        },
+      },
     },
   },
 }

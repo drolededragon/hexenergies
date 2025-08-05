@@ -7,12 +7,18 @@ import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.common.lib.HexRegistries
 import at.petrak.hexcasting.common.lib.hex.HexActions
 import net.drolededragon.hextech.casting.actions.spells.OpCongratulate
+import net.drolededragon.hextech.casting.actions.energy.OpEnergyInsert
+import net.drolededragon.hextech.casting.actions.energy.OpEnergyRead
 
 object HextechActions : HextechRegistrar<ActionRegistryEntry>(
     HexRegistries.ACTION,
     { HexActions.REGISTRY },
 ) {
     val CONGRATULATE = make("congratulate", HexDir.WEST, "eed", OpCongratulate)
+    
+    // Energy patterns following HexCasting naming conventions
+    val ENERGY_INSERT = make("energy/insert", HexDir.EAST, "qqqwwwaa", OpEnergyInsert)
+    val ENERGY_READ = make("energy/read", HexDir.EAST, "ddwwweee", OpEnergyRead)
 
     private fun make(name: String, startDir: HexDir, signature: String, action: Action) =
         make(name, startDir, signature) { action }

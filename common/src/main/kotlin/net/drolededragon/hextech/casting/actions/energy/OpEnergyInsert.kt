@@ -1,0 +1,42 @@
+package net.drolededragon.hextech.casting.actions.energy
+
+import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.getVec3
+import at.petrak.hexcasting.api.casting.getDouble
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.NullIota
+import at.petrak.hexcasting.api.casting.iota.Vec3Iota
+import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
+import net.minecraft.core.BlockPos
+import net.drolededragon.hextech.energy.HextechEnergyAbstractions
+
+object OpEnergyInsert : ConstMediaAction {
+    override val argc = 2
+    override val mediaCost = 0L // No media cost for energy insertion
+    
+    override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
+        val position = args.getVec3(0, argc)
+        val blockPos = BlockPos(position.x.toInt(), position.y.toInt(), position.z.toInt())
+        
+        if (!env.world.isInWorldBounds(blockPos)) {
+            throw MishapBadLocation(position, "hextech.energy_insert.out_of_bounds")
+        }
+        
+        // Check if we can actually insert energy at this position
+        if (!HextechEnergyAbstractions.canReceiveEnergy(env.world, blockPos)) {
+            throw MishapBadLocation(position, "hextech.energy_insert.no_energy_receiver")
+        }
+        
+        // Get energy amount
+        val energyAmount = args.getDouble(1, argc)
+        
+        // Convert to long (FE uses long for energy amounts)
+        val energyToInsert = maxOf(0, energyAmount.toLong())
+        
+        // Insert the energy
+        val success = HextechEnergyAbstractions.insertEnergy(env.world, blockPos, energyToInsert)
+        
+        return listOf(if (success) Vec3Iota(position) else NullIota())
+    }
+}
