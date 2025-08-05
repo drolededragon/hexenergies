@@ -40,10 +40,6 @@
 
   hexcasting: {
     entry: {
-      hextech_technology: "HexTech Technology",
-      hextech_technology: {
-        desc: "Spells that bridge the gap between hexcasting magic and technological systems. Harness the power of both ancient arts and modern engineering!",
-      },
       hextech: {
         energy_insert: "Energy Insert",
         energy_insert: {

@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.entry.hextech.energy_insert",
-  "category": "hexcasting:hextech_technology",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:redstone_block",
   "priority": true,
   "pages": [

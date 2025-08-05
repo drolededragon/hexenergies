@@ -1,7 +1,0 @@
-{
-  "name": "hexcasting.entry.hextech_technology",
-  "description": "hexcasting.entry.hextech_technology.desc", 
-  "icon": "minecraft:redstone_block",
-  "parent": "hexcasting:patterns",
-  "flag": "mod:hextech"
-}

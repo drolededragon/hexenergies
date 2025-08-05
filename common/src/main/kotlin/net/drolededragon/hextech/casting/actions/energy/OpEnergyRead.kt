@@ -8,9 +8,9 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.NullIota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
 import net.minecraft.core.BlockPos
-import net.drolededragon.hextech.energy.canReceiveEnergy
-import net.drolededragon.hextech.energy.getEnergyStored
-import net.drolededragon.hextech.energy.getMaxEnergyStored
+import net.drolededragon.hextech.canReceiveEnergy
+import net.drolededragon.hextech.getEnergyStored
+import net.drolededragon.hextech.getMaxEnergyStored
 
 object OpEnergyRead : ConstMediaAction {
     override val argc = 1

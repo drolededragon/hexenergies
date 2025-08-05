@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.entry.hextech.energy_read",
-  "category": "hexcasting:hextech_technology",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:comparator",
   "priority": true,
   "pages": [

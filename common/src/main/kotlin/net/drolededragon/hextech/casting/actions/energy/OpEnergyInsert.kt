@@ -9,8 +9,8 @@ import at.petrak.hexcasting.api.casting.iota.NullIota
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
 import net.minecraft.core.BlockPos
-import net.drolededragon.hextech.energy.canReceiveEnergy
-import net.drolededragon.hextech.energy.insertEnergy
+import net.drolededragon.hextech.canReceiveEnergy
+import net.drolededragon.hextech.insertEnergy
 
 object OpEnergyInsert : ConstMediaAction {
     override val argc = 2
