@@ -41,7 +41,7 @@ object OpEnergyInsert : ConstMediaAction {
         
         // Check if player has enough media
         if (requiredMedia > 0 && env.extractMedia(requiredMedia, true) < requiredMedia) {
-            throw MishapNotEnoughMedia()
+            throw MishapNotEnoughMedia(requiredMedia)
         }
         
         // Extract the required media if needed
