@@ -22,12 +22,7 @@ fun <T : Any> initRegistry(registrar: HextechRegistrar<T>) {
 
 // Energy system implementations for Forge
 fun canReceiveEnergy(level: Level, pos: BlockPos): Boolean {
-    val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: run {
-        println("DEBUG: No blockEntity at $pos")
-        return false
-    }
-    
-    println("DEBUG: Found blockEntity: ${blockEntity::class.simpleName} at $pos")
+    val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return false
     
     // Try all possible directions (sides) to find energy capability
     val directions = listOf(null) + Direction.values().toList()
@@ -36,14 +31,12 @@ fun canReceiveEnergy(level: Level, pos: BlockPos): Boolean {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
         if (forgeEnergy.isPresent) {
             val storage = forgeEnergy.get()
-            println("DEBUG: Found energy capability on $direction: canReceive=${storage.canReceive()}, energy=${storage.energyStored}/${storage.maxEnergyStored}")
             if (storage.canReceive()) {
                 return true
             }
         }
     }
     
-    println("DEBUG: No energy capability found")
     return false
 }
 
@@ -79,7 +72,11 @@ fun getEnergyStored(level: Level, pos: BlockPos): Long {
     for (direction in directions) {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
         if (forgeEnergy.isPresent) {
-            return forgeEnergy.get().energyStored.toLong()
+            val storage = forgeEnergy.get()
+            val stored = storage.energyStored.toLong()
+            val max = storage.maxEnergyStored.toLong()
+            println("DEBUG getEnergyStored: stored=$stored, max=$max (should return stored)")
+            return stored
         }
     }
     
@@ -95,7 +92,11 @@ fun getMaxEnergyStored(level: Level, pos: BlockPos): Long {
     for (direction in directions) {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
         if (forgeEnergy.isPresent) {
-            return forgeEnergy.get().maxEnergyStored.toLong()
+            val storage = forgeEnergy.get()
+            val stored = storage.energyStored.toLong()
+            val max = storage.maxEnergyStored.toLong()
+            println("DEBUG getMaxEnergyStored: stored=$stored, max=$max (should return max)")
+            return max
         }
     }
     

@@ -14,7 +14,7 @@
       "anchor": "hextech:energy/insert",
       "input": "vector, number",
       "output": "vector",
-      "text": "Takes the position of an energy-accepting block and the amount of energy to insert. Returns the position if successful, or null if the target refuses your generous electrical donation.$(br2)Energy is measured in Forge Energy units (FE). Most machines accept reasonable amounts, but don't try to power a toaster with the energy output of a small star."
+      "text": "Takes the position of an energy-accepting block and the amount of energy to insert. Returns the position if successful, or null if the target refuses your generous electrical donation.$(br2)Energy is measured in Forge Energy units (FE). Most machines accept reasonable amounts, but don't try to power a toaster with the energy output of a small star.$(br2)$(bold)Media Cost:$() 1 dust per 5,000 FE transferred. Converting magic into electricity ain't free!"
     },
     {
       "type": "patchouli:text", 
