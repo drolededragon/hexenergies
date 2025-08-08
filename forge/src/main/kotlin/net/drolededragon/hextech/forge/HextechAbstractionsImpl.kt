@@ -4,6 +4,7 @@ package net.drolededragon.hextech.forge
 
 import net.drolededragon.hextech.registry.HextechRegistrar
 import net.minecraft.core.BlockPos
+import net.minecraft.core.Direction
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraftforge.common.capabilities.ForgeCapabilities
@@ -24,7 +25,7 @@ fun canReceiveEnergy(level: Level, pos: BlockPos): Boolean {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return false
     
     // Try all possible directions (sides) to find energy capability
-    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    val directions = listOf(null) + Direction.values().toList()
     
     for (direction in directions) {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
@@ -43,7 +44,7 @@ fun insertEnergy(level: Level, pos: BlockPos, energy: Long): Boolean {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return false
     
     // Try all possible directions (sides) to find energy capability
-    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    val directions = listOf(null) + Direction.values().toList()
     val energyToInsert = energy.coerceAtMost(Integer.MAX_VALUE.toLong()).toInt()
     
     for (direction in directions) {
@@ -66,7 +67,7 @@ fun getEnergyStored(level: Level, pos: BlockPos): Long {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return 0
     
     // Try all possible directions (sides) to find energy capability
-    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    val directions = listOf(null) + Direction.values().toList()
     
     for (direction in directions) {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
@@ -82,7 +83,7 @@ fun getMaxEnergyStored(level: Level, pos: BlockPos): Long {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return 0
     
     // Try all possible directions (sides) to find energy capability
-    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    val directions = listOf(null) + Direction.values().toList()
     
     for (direction in directions) {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
