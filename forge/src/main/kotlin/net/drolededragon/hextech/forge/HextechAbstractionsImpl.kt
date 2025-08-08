@@ -23,10 +23,17 @@ fun <T : Any> initRegistry(registrar: HextechRegistrar<T>) {
 fun canReceiveEnergy(level: Level, pos: BlockPos): Boolean {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return false
     
-    // Check for Forge Energy capability
-    val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY).resolve()
-    if (forgeEnergy.isPresent) {
-        return forgeEnergy.get().canReceive()
+    // Try all possible directions (sides) to find energy capability
+    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    
+    for (direction in directions) {
+        val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
+        if (forgeEnergy.isPresent) {
+            val storage = forgeEnergy.get()
+            if (storage.canReceive()) {
+                return true
+            }
+        }
     }
     
     return false
@@ -35,15 +42,20 @@ fun canReceiveEnergy(level: Level, pos: BlockPos): Boolean {
 fun insertEnergy(level: Level, pos: BlockPos, energy: Long): Boolean {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return false
     
-    // Try Forge Energy
-    val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY).resolve()
-    if (forgeEnergy.isPresent) {
-        val storage: IEnergyStorage = forgeEnergy.get()
-        if (storage.canReceive()) {
-            // Cap at Integer.MAX_VALUE for Forge Energy
-            val energyToInsert = energy.coerceAtMost(Integer.MAX_VALUE.toLong()).toInt()
-            val inserted = storage.receiveEnergy(energyToInsert, false)
-            return inserted > 0
+    // Try all possible directions (sides) to find energy capability
+    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    val energyToInsert = energy.coerceAtMost(Integer.MAX_VALUE.toLong()).toInt()
+    
+    for (direction in directions) {
+        val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
+        if (forgeEnergy.isPresent) {
+            val storage = forgeEnergy.get()
+            if (storage.canReceive()) {
+                val inserted = storage.receiveEnergy(energyToInsert, false)
+                if (inserted > 0) {
+                    return true
+                }
+            }
         }
     }
     
@@ -53,10 +65,14 @@ fun insertEnergy(level: Level, pos: BlockPos, energy: Long): Boolean {
 fun getEnergyStored(level: Level, pos: BlockPos): Long {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return 0
     
-    // Try Forge Energy
-    val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY).resolve()
-    if (forgeEnergy.isPresent) {
-        return forgeEnergy.get().energyStored.toLong()
+    // Try all possible directions (sides) to find energy capability
+    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    
+    for (direction in directions) {
+        val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
+        if (forgeEnergy.isPresent) {
+            return forgeEnergy.get().energyStored.toLong()
+        }
     }
     
     return 0
@@ -65,10 +81,14 @@ fun getEnergyStored(level: Level, pos: BlockPos): Long {
 fun getMaxEnergyStored(level: Level, pos: BlockPos): Long {
     val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return 0
     
-    // Try Forge Energy
-    val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY).resolve()
-    if (forgeEnergy.isPresent) {
-        return forgeEnergy.get().maxEnergyStored.toLong()
+    // Try all possible directions (sides) to find energy capability
+    val directions = arrayOf(null) + net.minecraft.core.Direction.values()
+    
+    for (direction in directions) {
+        val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
+        if (forgeEnergy.isPresent) {
+            return forgeEnergy.get().maxEnergyStored.toLong()
+        }
     }
     
     return 0
