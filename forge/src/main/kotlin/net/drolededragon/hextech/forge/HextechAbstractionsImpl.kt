@@ -22,7 +22,12 @@ fun <T : Any> initRegistry(registrar: HextechRegistrar<T>) {
 
 // Energy system implementations for Forge
 fun canReceiveEnergy(level: Level, pos: BlockPos): Boolean {
-    val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: return false
+    val blockEntity: BlockEntity = level.getBlockEntity(pos) ?: run {
+        println("DEBUG: No blockEntity at $pos")
+        return false
+    }
+    
+    println("DEBUG: Found blockEntity: ${blockEntity::class.simpleName} at $pos")
     
     // Try all possible directions (sides) to find energy capability
     val directions = listOf(null) + Direction.values().toList()
@@ -31,12 +36,14 @@ fun canReceiveEnergy(level: Level, pos: BlockPos): Boolean {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
         if (forgeEnergy.isPresent) {
             val storage = forgeEnergy.get()
+            println("DEBUG: Found energy capability on $direction: canReceive=${storage.canReceive()}, energy=${storage.energyStored}/${storage.maxEnergyStored}")
             if (storage.canReceive()) {
                 return true
             }
         }
     }
     
+    println("DEBUG: No energy capability found")
     return false
 }
 
