@@ -33,9 +33,6 @@ object OpEnergyRead : ConstMediaAction {
         val currentEnergy = getEnergyStored(env.world, blockPos)
         val maxEnergy = getMaxEnergyStored(env.world, blockPos)
         
-        // Debug: print values to check what we're returning
-        println("DEBUG OpEnergyRead: currentEnergy=$currentEnergy, maxEnergy=$maxEnergy")
-        
         // Return current energy and max energy as doubles
         return listOf(
             DoubleIota(currentEnergy.toDouble()),

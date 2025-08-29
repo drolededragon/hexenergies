@@ -9,6 +9,7 @@ import at.petrak.hexcasting.api.casting.iota.NullIota
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughMedia
+import at.petrak.hexcasting.api.misc.MediaConstants
 import net.minecraft.core.BlockPos
 import net.drolededragon.hextech.canReceiveEnergy
 import net.drolededragon.hextech.insertEnergy
@@ -37,7 +38,7 @@ object OpEnergyInsert : ConstMediaAction {
         val energyToInsert = maxOf(0, energyAmount.toLong())
         
         // Calculate media cost: 1 dust per 5000 FE
-        val requiredMedia = (energyToInsert / 5000).toLong()
+        val requiredMedia = ((energyToInsert / 5000.0) * MediaConstants.DUST_UNIT).toLong()
         
         // Check if player has enough media
         if (requiredMedia > 0 && env.extractMedia(requiredMedia, true) < requiredMedia) {

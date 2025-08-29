@@ -72,11 +72,7 @@ fun getEnergyStored(level: Level, pos: BlockPos): Long {
     for (direction in directions) {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
         if (forgeEnergy.isPresent) {
-            val storage = forgeEnergy.get()
-            val stored = storage.energyStored.toLong()
-            val max = storage.maxEnergyStored.toLong()
-            println("DEBUG getEnergyStored: stored=$stored, max=$max (should return stored)")
-            return stored
+            return forgeEnergy.get().energyStored.toLong()
         }
     }
     
@@ -92,11 +88,7 @@ fun getMaxEnergyStored(level: Level, pos: BlockPos): Long {
     for (direction in directions) {
         val forgeEnergy = blockEntity.getCapability(ForgeCapabilities.ENERGY, direction).resolve()
         if (forgeEnergy.isPresent) {
-            val storage = forgeEnergy.get()
-            val stored = storage.energyStored.toLong()
-            val max = storage.maxEnergyStored.toLong()
-            println("DEBUG getMaxEnergyStored: stored=$stored, max=$max (should return max)")
-            return max
+            return forgeEnergy.get().maxEnergyStored.toLong()
         }
     }
     

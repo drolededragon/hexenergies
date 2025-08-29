@@ -7,6 +7,11 @@
             "": "Dummy Spells",
             congratulate: "Remove an entity from the stack, then congratulate them.",
           },
+          energy_spells: {
+            "": "Energy Spells",
+            energy_insert: "Takes the position of an energy-accepting block and the amount of energy to insert. Returns the position if successful, or null if the target refuses your generous electrical donation.$(br2)Energy is measured in Forge Energy units (FE). Costs 1 dust per 5,000 FE transferred.",
+            energy_read: "Takes the position of an energy-storing block and returns two numbers: the current energy stored and the maximum energy capacity. Think of it as a magical voltmeter that speaks in FE units.",
+          },
         },
       },
     },
@@ -38,18 +43,4 @@
     },
   },
 
-  hexcasting: {
-    entry: {
-      hextech: {
-        energy_insert: "Energy Insert",
-        energy_insert: {
-          desc: "Channel raw energy into technological devices with surgical precision. Because sometimes machines need a magical jump-start.",
-        },
-        energy_read: "Energy Read",
-        energy_read: {
-          desc: "Peer into the electrical soul of machines to understand their power levels. Knowledge is power, and power is measurable.",
-        },
-      },
-    },
-  },
 }
