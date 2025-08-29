@@ -3,42 +3,42 @@ loaderVersion = "[${versions.kotlin_forge},)"
 license = "MIT"
 
 [[mods]]
-modId = "hextech"
+modId = "hexenergies"
 version = "${version}"
-displayName = "Hextech"
-logoFile = "assets/hextech/icon.png"
+displayName = "Hexenergies"
+logoFile = "assets/hexenergies/icon.png"
 authors = "drolededragon"
-description = "Hextech is an addon for Hex Casting focused on interaction with technology mods."
+description = "Hexenergies is an addon for Hex Casting focused on interaction with technology mods."
 
-[[dependencies.hextech]]
+[[dependencies.hexenergies]]
 modId = "forge"
 mandatory = true
 versionRange = "[${versions.forge_dependency},)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.hextech]]
+[[dependencies.hexenergies]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[${versions.minecraft},)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.hextech]]
+[[dependencies.hexenergies]]
 modId = "architectury"
 mandatory = true
 versionRange = "[${versions.architectury},)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.hextech]]
+[[dependencies.hexenergies]]
 modId = "cloth_config"
 mandatory = true
 versionRange = "[${versions.cloth_config},)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.hextech]]
+[[dependencies.hexenergies]]
 modId = "hexcasting"
 mandatory = true
 versionRange = "[${versions.hexcasting_dependency},)"

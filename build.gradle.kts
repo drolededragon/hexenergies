@@ -1,5 +1,5 @@
 plugins {
-    id("hextech.java")
+    id("hexenergies.java")
 }
 
 

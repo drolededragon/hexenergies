@@ -1,8 +1,8 @@
-# hexdoc-hextech
+# hexdoc-hexenergies
 
-Python web book docgen and [hexdoc](https://pypi.org/project/hexdoc) plugin for Hextech.
+Python web book docgen and [hexdoc](https://pypi.org/project/hexdoc) plugin for Hexenergies.
 
-Hextech is an addon for Hex Casting focused on interaction with technology mods.
+Hexenergies is an addon for Hex Casting focused on interaction with technology mods.
 
 ## Version scheme
 
@@ -35,9 +35,9 @@ pip install -e .[dev]
 For local testing, create a file called `.env` in the repo root following this template:
 
 ```sh
-GITHUB_REPOSITORY=drolededragon/hextech
+GITHUB_REPOSITORY=drolededragon/hexenergies
 GITHUB_SHA=main
-GITHUB_PAGES_URL=https://github.com/drolededragon/hextech
+GITHUB_PAGES_URL=https://github.com/drolededragon/hexenergies
 ```
 
 Useful commands:

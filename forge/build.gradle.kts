@@ -1,5 +1,5 @@
 plugins {
-    id("hextech.platform")
+    id("hexenergies.platform")
 }
 
 val modId: String by project
@@ -14,8 +14,8 @@ loom {
         extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
 
         mixinConfig(
-            "hextech-common.mixins.json",
-            "hextech-forge.mixins.json",
+            "hexenergies-common.mixins.json",
+            "hexenergies-forge.mixins.json",
         )
     }
 
@@ -30,12 +30,12 @@ loom {
                 "--existing", file("src/main/resources").absolutePath,
                 "--existing", project(":common").file("src/main/resources").absolutePath,
             )
-            property("hextech.apply-datagen-mixin", "true")
+            property("hexenergies.apply-datagen-mixin", "true")
         }
     }
 }
 
-hextechModDependencies {
+hexenergiesModDependencies {
     // expand versions in mods.toml
     filesMatching.add("META-INF/mods.toml")
 

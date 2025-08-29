@@ -1,12 +1,12 @@
 plugins {
-    id("hextech.platform")
+    id("hexenergies.platform")
 }
 
 architectury {
     fabric()
 }
 
-hextechModDependencies {
+hexenergiesModDependencies {
     // expand versions in fabric.mod.json
     filesMatching.add("fabric.mod.json")
 

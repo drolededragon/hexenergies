@@ -1,4 +1,4 @@
-modid = "hextech"
+modid = "hexenergies"
 book = "hexcasting:thehexbook"
 
 resource_dirs = [  # top takes priority
@@ -13,18 +13,18 @@ resource_dirs = [  # top takes priority
     { modid="minecraft" },
     { modid="hexdoc" },
 ]
-export_dir = "src/hexdoc_hextech/_export/generated"
+export_dir = "src/hexdoc_hexenergies/_export/generated"
 
 [template]
-icon = "{$_common.src}/main/resources/assets/hextech/icon.png"
+icon = "{$_common.src}/main/resources/assets/hexenergies/icon.png"
 include = [
-    "hextech",
+    "hexenergies",
     "hexcasting",
     "hexdoc",
 ]
 
 [template.args]
-mod_name = "Hextech"
+mod_name = "Hexenergies"
 author = "drolededragon"
 show_landing_text = false
 
@@ -34,7 +34,7 @@ _pattern_regex = { "!Raw"='(?P<is_per_world>make|makePerWorld)\("(?P<name>[^"]+)
 _per_world_value = "makePerWorld"
 
 [[extra.hexcasting.pattern_stubs]]
-path = "{$_common.kotlin}/registry/HextechActions.kt"
+path = "{$_common.kotlin}/registry/HexenergiesActions.kt"
 regex = "{^_pattern_regex}"
 per_world_value = "{^_per_world_value}"
 
@@ -42,15 +42,15 @@ per_world_value = "{^_per_world_value}"
 
 [_common]
 src = "../common/src"
-java = "{src}/main/java/net/drolededragon/hextech"
-kotlin = "{src}/main/kotlin/net/drolededragon/hextech"
+java = "{src}/main/java/net/drolededragon/hexenergies"
+kotlin = "{src}/main/kotlin/net/drolededragon/hexenergies"
 
 [_fabric]
 src = "../fabric/src"
-java = "{src}/main/java/net/drolededragon/hextech/fabric"
-kotlin = "{src}/main/kotlin/net/drolededragon/hextech/fabric"
+java = "{src}/main/java/net/drolededragon/hexenergies/fabric"
+kotlin = "{src}/main/kotlin/net/drolededragon/hexenergies/fabric"
 
 [_forge]
 src = "../forge/src"
-java = "{src}/main/java/net/drolededragon/hextech/forge"
-kotlin = "{src}/main/kotlin/net/drolededragon/hextech/forge"
+java = "{src}/main/java/net/drolededragon/hexenergies/forge"
+kotlin = "{src}/main/kotlin/net/drolededragon/hexenergies/forge"

@@ -1,5 +1,5 @@
 plugins {
-    id("hextech.minecraft")
+    id("hexenergies.minecraft")
 }
 
 architectury {

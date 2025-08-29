@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
-  "id": "hextech",
+  "id": "hexenergies",
   "version": "${version}",
-  "name": "Hextech",
-  "description": "Hextech is an addon for Hex Casting focused on interaction with technology mods.",
+  "name": "Hexenergies",
+  "description": "Hexenergies is an addon for Hex Casting focused on interaction with technology mods.",
   "authors": [
     "drolededragon"
   ],
   "contact": {
-    "homepage": "https://drolededragon.github.io/hextech",
-    "sources": "https://github.com/drolededragon/hextech"
+    "homepage": "https://drolededragon.github.io/hexenergies",
+    "sources": "https://github.com/drolededragon/hexenergies"
   },
   "license": "MIT",
-  "icon": "assets/hextech/icon.png",
+  "icon": "assets/hexenergies/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [{
       "adapter": "kotlin",
-      "value": "net.drolededragon.hextech.fabric.FabricHextech"
+      "value": "net.drolededragon.hexenergies.fabric.FabricHexenergies"
     }],
     "client": [{
       "adapter": "kotlin",
-      "value": "net.drolededragon.hextech.fabric.FabricHextechClient"
+      "value": "net.drolededragon.hexenergies.fabric.FabricHexenergiesClient"
     }],
     "modmenu": [{
       "adapter": "kotlin",
-      "value": "net.drolededragon.hextech.fabric.FabricHextechModMenu"
+      "value": "net.drolededragon.hexenergies.fabric.FabricHexenergiesModMenu"
     }]
   },
   "mixins": [
-    "hextech-common.mixins.json",
-    "hextech-fabric.mixins.json"
+    "hexenergies-common.mixins.json",
+    "hexenergies-fabric.mixins.json"
   ],
   "depends": {
     "minecraft": "${versions.minecraft}",

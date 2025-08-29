@@ -8,8 +8,8 @@ build-backend = "hatchling.build"
 # project metadata
 
 [project]
-name = "hexdoc-hextech"
-description = "Hextech is an addon for Hex Casting focused on interaction with technology mods."
+name = "hexdoc-hexenergies"
+description = "Hexenergies is an addon for Hex Casting focused on interaction with technology mods."
 readme = "doc/README.md"
 authors = [
     { name="drolededragon" },
@@ -19,15 +19,15 @@ requires-python = ">=3.11"
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "https://drolededragon.github.io/hextech"
-Source = "https://github.com/drolededragon/hextech"
+Homepage = "https://drolededragon.github.io/hexenergies"
+Source = "https://github.com/drolededragon/hexenergies"
 
 # Gradle version/deps
 
 [tool.hatch.version]
 scheme = "gradle"
 source = "gradle-properties"
-py-path = "doc/src/hexdoc_hextech/__version__.py"
+py-path = "doc/src/hexdoc_hexenergies/__version__.py"
 key = "modVersion"
 
 [tool.hatch.metadata.hooks.version-catalog]
@@ -44,12 +44,12 @@ dev = [
 
 [tool.hatch.build]
 only-include = [
-    "doc/src/hexdoc_hextech",
+    "doc/src/hexdoc_hexenergies",
     "gradle.properties",
 ]
 artifacts = [
-    "/doc/src/hexdoc_hextech/_export/generated",
-    "/doc/src/hexdoc_hextech/__gradle_version__.py",
+    "/doc/src/hexdoc_hexenergies/_export/generated",
+    "/doc/src/hexdoc_hexenergies/__gradle_version__.py",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -58,7 +58,7 @@ sources = ["doc/src"]
 # hexdoc entry points
 
 [project.entry-points.hexdoc]
-hextech = "hexdoc_hextech._hooks:HextechPlugin"
+hexenergies = "hexdoc_hexenergies._hooks:HexenergiesPlugin"
 
 # linting
 

@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "net.drolededragon.hextech.forge.mixin",
+  "package": "net.drolededragon.hexenergies.forge.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
@@ -8,7 +8,7 @@
   "mixins": [
     "MixinDatagenMain"
   ],
-  "plugin": "net.drolededragon.hextech.forge.mixin.ForgeMixinConfigPlugin",
+  "plugin": "net.drolededragon.hexenergies.forge.mixin.ForgeMixinConfigPlugin",
   "injectors": {
     "defaultRequire": 1
   }
