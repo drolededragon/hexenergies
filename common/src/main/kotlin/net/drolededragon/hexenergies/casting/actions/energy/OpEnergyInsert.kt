@@ -13,6 +13,7 @@ import at.petrak.hexcasting.api.misc.MediaConstants
 import net.minecraft.core.BlockPos
 import net.drolededragon.hexenergies.canReceiveEnergy
 import net.drolededragon.hexenergies.insertEnergy
+import net.drolededragon.hexenergies.config.HexenergiesConfig
 
 object OpEnergyInsert : ConstMediaAction {
     override val argc = 2
@@ -37,8 +38,9 @@ object OpEnergyInsert : ConstMediaAction {
         // Convert to long (FE uses long for energy amounts)
         val energyToInsert = maxOf(0, energyAmount.toLong())
         
-        // Calculate media cost: 1 dust per 5000 FE
-        val requiredMedia = ((energyToInsert / 5000.0) * MediaConstants.DUST_UNIT).toLong()
+        // Calculate media cost: 1 dust per configured ratio FE
+        val energyRatio = HexenergiesConfig.server.mediaToEnergyRatio.toDouble()
+        val requiredMedia = ((energyToInsert / energyRatio) * MediaConstants.DUST_UNIT).toLong()
         
         // Check if player has enough media
         if (requiredMedia > 0 && env.extractMedia(requiredMedia, true) < requiredMedia) {

@@ -73,13 +73,19 @@ object HexenergiesConfig {
         var serverConfigOption: Int = 64
             private set
 
+        @Tooltip
+        var mediaToEnergyRatio: Int = 5000
+            private set
+
         fun encode(buf: FriendlyByteBuf) {
             buf.writeInt(serverConfigOption)
+            buf.writeInt(mediaToEnergyRatio)
         }
 
         companion object {
             fun decode(buf: FriendlyByteBuf) = ServerConfig().apply {
                 serverConfigOption = buf.readInt()
+                mediaToEnergyRatio = buf.readInt()
             }
         }
     }
