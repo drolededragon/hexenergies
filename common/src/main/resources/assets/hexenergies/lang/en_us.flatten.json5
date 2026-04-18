@@ -3,10 +3,6 @@
     book: {
       patterns: {
         spells: {
-          dummy_spells: {
-            "": "Dummy Spells",
-            congratulate: "Remove an entity from the stack, then congratulate them.",
-          },
           energy_spells: {
             "": "Energy Spells",
             energy_insert: "Takes the position of an energy-accepting block and the amount of energy to insert. Returns the position if successful, or null if the target refuses your generous electrical donation.$(br2)Energy is measured in Forge Energy units (FE). Costs 1 dust per 5,000 FE transferred.",
@@ -20,27 +16,16 @@
   hexcasting: {
     action: {
       "hextech:": {
-        congratulate: "Congratulate Player",
         "energy/insert": "Energy Insert",
         "energy/read": "Energy Read",
       },
 
-      // use this to add shortened versions of pattern names if the full name won't fit in the ingame book
-      // you don't need to add an entry for every pattern - the above value will be used as a default
       book: {
         "hextech:": {
-          congratulate: "Congratulate",
           "energy/insert": "Energy Insert",
           "energy/read": "Energy Read",
         },
       },
     },
   },
-
-  text: {
-    hextech: {
-      congrats: "Tell %1$s they're doing a good job!",
-    },
-  },
-
 }

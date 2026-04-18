@@ -1,16 +1,24 @@
 {
-  name: "hextech.book.patterns.spells.dummy_spells",
+  name: "hextech.book.patterns.spells.energy_spells",
   category: "hexcasting:patterns/spells",
-  icon: "minecraft:spruce_sign",
+  icon: "minecraft:redstone",
   advancement: "hexcasting:root",
   pages: [
     {
       type: "hexcasting:pattern",
-      op_id: "hextech:congratulate",
-      anchor: "hextech:congratulate",
-      input: "entity",
+      op_id: "hextech:energy/insert",
+      anchor: "hextech:energy/insert",
+      input: "entity, num",
       output: "",
-      text: "hextech.book.patterns.spells.dummy_spells.congratulate",
+      text: "hextech.book.patterns.spells.energy_spells.energy_insert",
+    },
+    {
+      type: "hexcasting:pattern",
+      op_id: "hextech:energy/read",
+      anchor: "hextech:energy/read",
+      input: "entity",
+      output: "num, num",
+      text: "hextech.book.patterns.spells.energy_spells.energy_read",
     },
   ],
 }
